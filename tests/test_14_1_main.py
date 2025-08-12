@@ -29,6 +29,11 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
+@pytest.fixture(autouse=True)
+def reset_counters():
+    """Автоматический сброс счетчиков перед каждым тестом"""
+    Category.category_count = 0
+    Category.product_count = 0
 
 @pytest.fixture
 def sample_product():
@@ -75,3 +80,19 @@ class TestCategory:
         assert empty_category.name == "Пустая"
         assert empty_category.description == "Категория без товаров"
         assert empty_category.products == []
+
+    def test_initial_counters(self):
+        """Проверка начального состояния счетчиков"""
+        assert Category.category_count == 0
+        assert Category.product_count == 0
+
+    def test_single_category_no_products(self, empty_category):
+        """Создание категории без продуктов"""
+        assert Category.category_count == 1
+        assert Category.product_count == 0
+
+    def test_single_category_with_products(self, sample_products):
+        """Создание категории с несколькими продуктами"""
+        category = Category("Электроника", "Техника", sample_products)
+        assert Category.category_count == 1
+        assert Category.product_count == 2
