@@ -1,44 +1,14 @@
 import pytest
 
+from src.Category import Category
+from src.Product import Product
 
-class Product:
-    name: str
-    description: str
-    price: float
-    quantity: int
-
-    def __init__(self, name, description, price, quantity):
-        self.name = name
-        self.description = description
-        self.price = price
-        self.quantity = quantity
-
-
-class Category:
-    category_count = 0
-    product_count = 0
-
-    name: str
-    description: str
-    products: list[Product]
-
-    def __init__(self, name, description, products):
-        self.name = name
-        self.description = description
-        self.products = products
-        Category.category_count += 1
-        Category.product_count += len(products)
 
 @pytest.fixture(autouse=True)
 def reset_counters():
     """Автоматический сброс счетчиков перед каждым тестом"""
     Category.category_count = 0
     Category.product_count = 0
-
-@pytest.fixture
-def sample_product():
-    """Фикстура для создания продукта"""
-    return Product("Телефон", "Смартфон", 50000.0, 10)
 
 
 @pytest.fixture
@@ -60,14 +30,6 @@ def empty_category():
 def sample_category(sample_products):
     """Фикстура для категории с товарами"""
     return Category("Электроника", "Техника", sample_products)
-
-
-class TestProduct:
-    def test_product_creation(self, sample_product):
-        assert sample_product.name == "Телефон"
-        assert sample_product.description == "Смартфон"
-        assert sample_product.price == 50000.0
-        assert sample_product.quantity == 10
 
 
 class TestCategory:
