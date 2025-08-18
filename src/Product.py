@@ -20,7 +20,6 @@ class Product:
         new_product = Product(product["name"], product["description"], product["price"], product["quantity"])
         return new_product
 
-
     @property
     def price(self):
         return self.__price
@@ -31,7 +30,7 @@ class Product:
             if price >= self.__price:
                 self.__price = price
             elif price < self.__price:
-                if input('Подтвердите снижение цены:\ny - да\nn - нет') == 'y':
+                if input("Подтвердите снижение цены:\ny - да\nn - нет") == "y":
                     self.__price = price
         else:
-            print('“Цена не должна быть нулевая или отрицательная”')
+            print("“Цена не должна быть нулевая или отрицательная”")
