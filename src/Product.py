@@ -16,5 +16,6 @@ class Product:
 
     @classmethod
     def new_product(cls, product: dict):
-        new_product = Product(product['name'], product['description'], product['price'], product['quantity'])
+
+        new_product = Product(product["name"], product["description"], product["price"], product["quantity"])
         return new_product
