@@ -25,7 +25,7 @@ class Category:
             self.__products.append(product)
             Category.product_count += 1
         else:
-            "В категорию можно добавить только объект класса Product"
+            print("В категорию можно добавить только объект класса Product")
 
     def __str__(self):
         quantity_counter = 0
