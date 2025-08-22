@@ -27,6 +27,13 @@ class Category:
         else:
             "В категорию можно добавить только объект класса Product"
 
+    def __str__(self):
+        quantity_counter = 0
+        for i in self.__products:
+            quan = i.quantity
+            quantity_counter += quan
+        return f'{self.name}, количество продуктов: {quantity_counter} шт.'
+
     @property
     def products(self):
         for i in self.__products:
