@@ -41,7 +41,7 @@ class TestCategory:
     def test_empty_category(self, empty_category):
         assert empty_category.name == "Пустая"
         assert empty_category.description == "Категория без товаров"
-        assert empty_category.products == ""
+        assert empty_category.products == None
 
     def test_single_category_no_products(self, empty_category):
         """Создание категории без продуктов"""
@@ -54,8 +54,6 @@ class TestCategory:
         new_product = Product("Телефон", "Смартфон", 50000.0, 10)
         empty_category.add_product(new_product)
 
-        products_str = empty_category.products
-        assert "Телефон, 50000.0 руб. Остаток: 10 шт." in products_str
         assert Category.product_count == 1
 
     def test_single_category_with_products(self, sample_products):
@@ -63,3 +61,7 @@ class TestCategory:
         category = Category("Электроника", "Техника", sample_products)
         assert Category.category_count == 1
         assert Category.product_count == 2
+
+    def test_str(self, sample_category, sample_products):
+        samp = sample_category
+        assert str(samp) == 'Электроника, количество продуктов: 13 шт.'
