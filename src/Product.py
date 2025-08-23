@@ -40,3 +40,7 @@ class Product:
                     self.__price = price
         else:
             print("“Цена не должна быть нулевая или отрицательная”")
+
+
+p1 = Product("Телефон", "Смартфон", 50000.0, 10)
+print(p1)
