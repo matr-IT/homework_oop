@@ -32,7 +32,7 @@ class Category:
         for i in self.__products:
             quan = i.quantity
             quantity_counter += quan
-        return f'{self.name}, количество продуктов: {quantity_counter} шт.'
+        return f"{self.name}, количество продуктов: {quantity_counter} шт."
 
     @property
     def products(self):

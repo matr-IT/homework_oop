@@ -64,4 +64,4 @@ class TestCategory:
 
     def test_str(self, sample_category, sample_products):
         samp = sample_category
-        assert str(samp) == 'Электроника, количество продуктов: 13 шт.'
+        assert str(samp) == "Электроника, количество продуктов: 13 шт."
