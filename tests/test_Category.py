@@ -1,3 +1,5 @@
+from logging import raiseExceptions
+
 import pytest
 
 from src.Category import Category
@@ -19,6 +21,10 @@ def sample_products():
         Product("Планшет", "Графический планшет", 30000.0, 8),
     ]
 
+@pytest.fixture
+def not_a_product():
+    """Фикстура для не-продукта"""
+    return "Это не продукт"
 
 @pytest.fixture
 def empty_category():
@@ -65,3 +71,8 @@ class TestCategory:
     def test_str(self, sample_category, sample_products):
         samp = sample_category
         assert str(samp) == "Электроника, количество продуктов: 13 шт."
+
+    def test_add_non_product_raises_type_error(self, empty_category, not_a_product):
+        """Тест добавления не-продукта в категорию"""
+        with pytest.raises(TypeError, match="Можно добавлять только объекты класса Product и его наследников"):
+            empty_category.add_product(not_a_product)
