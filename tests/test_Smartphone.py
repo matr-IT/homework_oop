@@ -2,11 +2,14 @@ import pytest
 
 from src.Smartphone import Smartphone
 
+
 @pytest.fixture
 def sample_smartphone():
     """Фикстура для создания смартфона"""
-    return Smartphone("iPhone 14 Pro", "256GB, Фиолетовый цвет, 48MP камера", 120000.0, 10, 90.5, "14 Pro", 256,
-                      "Фиолетовый")
+    return Smartphone(
+        "iPhone 14 Pro", "256GB, Фиолетовый цвет, 48MP камера", 120000.0, 10, 90.5, "14 Pro", 256, "Фиолетовый"
+    )
+
 
 class TestSmartphone:
     def test_smartphone_initialization(self, sample_smartphone):
@@ -26,7 +29,8 @@ class TestSmartphone:
 
     def test_addition(self, sample_smartphone):
         """Тест сложения двух объектов Smartphone"""
-        smartphone2 = Smartphone("Samsung Galaxy S21", "128GB, Черный цвет, 64MP камера", 80000.0, 5, 85.0, "S21", 128,
-                                 "Черный")
+        smartphone2 = Smartphone(
+            "Samsung Galaxy S21", "128GB, Черный цвет, 64MP камера", 80000.0, 5, 85.0, "S21", 128, "Черный"
+        )
         total_value = sample_smartphone + smartphone2
         assert total_value == (120000.0 * 10) + (80000.0 * 5)

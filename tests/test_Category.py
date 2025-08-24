@@ -21,10 +21,12 @@ def sample_products():
         Product("Планшет", "Графический планшет", 30000.0, 8),
     ]
 
+
 @pytest.fixture
 def not_a_product():
     """Фикстура для не-продукта"""
     return "Это не продукт"
+
 
 @pytest.fixture
 def empty_category():
