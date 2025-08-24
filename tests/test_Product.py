@@ -40,3 +40,14 @@ class TestProduct:
         prod.price = 60000.0  # Увеличиваем цену
 
         assert prod.price == 60000.0
+
+    def test_str(self, sample_product):
+        """Тест пользовательского вывода"""
+        prod = sample_product
+        assert str(prod) == "Телефон, 50000.0 руб. Остаток: 10 шт."
+
+    def test_add(self, sample_product):
+        """Тест сложения Продуктов"""
+        prod = sample_product
+        prod_2 = Product("Планшет", "Смартфон, но побольше", 80000.0, 13)
+        assert Product.__add__(prod, prod_2) == 1540000

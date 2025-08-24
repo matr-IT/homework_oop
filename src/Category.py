@@ -25,11 +25,16 @@ class Category:
             self.__products.append(product)
             Category.product_count += 1
         else:
-            "В категорию можно добавить только объект класса Product"
+            print("В категорию можно добавить только объект класса Product")
+
+    def __str__(self):
+        quantity_counter = 0
+        for i in self.__products:
+            quan = i.quantity
+            quantity_counter += quan
+        return f"{self.name}, количество продуктов: {quantity_counter} шт."
 
     @property
     def products(self):
-        list_of_products = ""
         for i in self.__products:
-            list_of_products += f"{i.name}, {i.price} руб. Остаток: {i.quantity} шт.\n"
-        return list_of_products
+            print(i)
