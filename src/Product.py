@@ -18,6 +18,8 @@ class Product:
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
+        if type(other) is not type(self):
+            raise TypeError("Складывать можно только объекты одного класса")
         return self.__price * self.quantity + other.__price * other.quantity
 
     @classmethod
