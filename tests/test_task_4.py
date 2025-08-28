@@ -7,10 +7,7 @@ from src.Smartphone import Smartphone
 class TestSmartphone:
     @pytest.fixture
     def sample_smartphone(self):
-        return Smartphone(
-            "Test Phone", "Test Description", 1000.0, 10,
-            95.0, "Test Model", 128, "Black"
-        )
+        return Smartphone("Test Phone", "Test Description", 1000.0, 10, 95.0, "Test Model", 128, "Black")
 
     def test_smartphone_creation(self, sample_smartphone):
         assert sample_smartphone.name == "Test Phone"
@@ -34,10 +31,7 @@ class TestSmartphone:
 class TestLawnGrass:
     @pytest.fixture
     def sample_lawn_grass(self):
-        return LawnGrass(
-            "Test Grass", "Test Description", 500.0, 100,
-            "Test Country", "14 дней", "Green"
-        )
+        return LawnGrass("Test Grass", "Test Description", 500.0, 100, "Test Country", "14 дней", "Green")
 
     def test_lawn_grass_creation(self, sample_lawn_grass):
         assert sample_lawn_grass.name == "Test Grass"
@@ -62,7 +56,7 @@ class TestCategory:
     def sample_products(self):
         return [
             Smartphone("Phone1", "Desc1", 1000.0, 2, 90.0, "M1", 64, "Black"),
-            LawnGrass("Grass1", "Desc2", 500.0, 10, "C1", "10 дней", "Green")
+            LawnGrass("Grass1", "Desc2", 500.0, 10, "C1", "10 дней", "Green"),
         ]
 
     def test_category_creation(self, sample_products):
@@ -70,7 +64,6 @@ class TestCategory:
 
         assert category.name == "Test Category"
         assert category.description == "Test Description"
-
 
     def test_add_invalid_product(self):
         category = Category("Test", "Test", [])
@@ -82,7 +75,7 @@ class TestCategory:
         initial_count = Category.product_count
         products = [
             Smartphone("Phone1", "Desc1", 1000.0, 2, 90.0, "M1", 64, "Black"),
-            LawnGrass("Grass1", "Desc2", 500.0, 10, "C1", "10 дней", "Green")
+            LawnGrass("Grass1", "Desc2", 500.0, 10, "C1", "10 дней", "Green"),
         ]
         category = Category("Test", "Test", products)
 
