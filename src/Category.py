@@ -11,12 +11,12 @@ class Category:
 
     name: str
     description: str
-    __products: list[Product]
+    __products: list
 
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
-        self.__products = products
+        self.__products = list(products)
         Category.category_count += 1
         Category.product_count += len(products)
 
@@ -35,5 +35,7 @@ class Category:
 
     @property
     def products(self):
+        str_list = []
         for i in self.__products:
-            print(i)
+            str_list.append(f"{i.name}, {i.price} руб. Остаток: {i.quantity} шт.")
+        return "\n".join(str_list)

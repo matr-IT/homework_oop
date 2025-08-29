@@ -1,4 +1,7 @@
-class Product:
+from src.BaseProduct import BaseProduct
+
+
+class Product(BaseProduct):
     """
     Класс продукта
     """
