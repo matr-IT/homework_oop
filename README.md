@@ -49,6 +49,30 @@ pip install -r requirements.txt
 4. Количество категорий
 5. Количество продуктов
 
+Реализована инициализация классов Smartphone и LawnGardenTech, наследующихся от Product:
+Свойства Smartphone:
+1. эффективность
+2. модель
+3. память
+4. цвет
+
+Свойства LawnGrass:
+1. страна производитель
+2. период созревания
+3. цвет
+
+## Тестирование
+### Запуск тестов
+
+```bash
+pytest tests/  # Запуск всех тестов
+
+pytest tests/test_product.py  # Запуск тестов для Product
+pytest tests/test_category.py  # Запуск тестов для Category
+pytest tests/test_smartphone.py  # Запуск тестов для Smartphone
+pytest tests/test_lawn_garden_tech.py  # Запуск тестов для LawnGrass
+```
+
 
 
 ### Покрытие кода
