@@ -1,7 +1,8 @@
 from src.BaseProduct import BaseProduct
+from src.MixinLog import MixinLog
 
 
-class Product(BaseProduct):
+class Product(BaseProduct, MixinLog):
     """
     Класс продукта
     """
@@ -16,6 +17,7 @@ class Product(BaseProduct):
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
@@ -47,5 +49,4 @@ class Product(BaseProduct):
             print("“Цена не должна быть нулевая или отрицательная”")
 
 
-p1 = Product("Телефон", "Смартфон", 50000.0, 10)
-print(p1)
+product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
