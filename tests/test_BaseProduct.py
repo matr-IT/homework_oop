@@ -1,5 +1,7 @@
-from src.BaseProduct import BaseProduct
 import pytest
+
+from src.BaseProduct import BaseProduct
+
 
 class TestBaseProduct:
 

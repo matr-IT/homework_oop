@@ -1,7 +1,6 @@
 from src.MixinLog import MixinLog
 
 
-
 # Тестовый класс для проверки работы MixinLog
 class TestProduct(MixinLog):
     def __init__(self, name, description, price, quantity):
@@ -11,12 +10,13 @@ class TestProduct(MixinLog):
         self.quantity = quantity
         super().__init__()
 
+
 def test_mixin_log_output(capsys):
     """
     Тестирует вывод информации при создании объекта класса с миксином
     """
     # Создаем объект и перехватываем вывод
-    product = TestProduct('Продукт1', 'Описание продукта', 1200, 10)
+    product = TestProduct("Продукт1", "Описание продукта", 1200, 10)
 
     # Получаем перехваченный вывод
     captured = capsys.readouterr()

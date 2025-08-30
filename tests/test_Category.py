@@ -49,7 +49,7 @@ class TestCategory:
     def test_empty_category(self, empty_category):
         assert empty_category.name == "Пустая"
         assert empty_category.description == "Категория без товаров"
-        assert empty_category.products == None
+        assert empty_category.products == ""
 
     def test_single_category_no_products(self, empty_category):
         """Создание категории без продуктов"""
