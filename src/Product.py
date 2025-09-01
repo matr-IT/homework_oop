@@ -21,7 +21,6 @@ class Product(BaseProduct, MixinLog):
             raise ValueError("Товар с нулевым количеством не может быть добавлен")
         super().__init__()
 
-
     def __str__(self):
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
@@ -50,4 +49,3 @@ class Product(BaseProduct, MixinLog):
                     self.__price = price
         else:
             print("“Цена не должна быть нулевая или отрицательная”")
-

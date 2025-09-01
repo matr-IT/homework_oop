@@ -52,7 +52,9 @@ class TestProduct:
         prod_2 = Product("Планшет", "Смартфон, но побольше", 80000.0, 13)
         assert Product.__add__(prod, prod_2) == 1540000
 
-    def test_add_zero_quantity(self,):
+    def test_add_zero_quantity(
+        self,
+    ):
         """Тест создания продукта с нулевым количеством"""
         with pytest.raises(ValueError) as e:
             Product("Телефон", "Смартфон", 50000.0, 0)
