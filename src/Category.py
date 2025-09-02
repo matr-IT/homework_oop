@@ -39,3 +39,12 @@ class Category:
         for i in self.__products:
             str_list.append(f"{i.name}, {i.price} руб. Остаток: {i.quantity} шт.")
         return "\n".join(str_list)
+
+    def middle_price(self):
+        try:
+            counter = 0
+            for i in self.__products:
+                counter += i.price
+            return round(counter / len(self.__products))
+        except ZeroDivisionError:
+            return 0

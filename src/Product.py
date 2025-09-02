@@ -17,6 +17,8 @@ class Product(BaseProduct, MixinLog):
         self.description = description
         self.__price = price
         self.quantity = quantity
+        if self.quantity <= 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         super().__init__()
 
     def __str__(self):
@@ -47,6 +49,3 @@ class Product(BaseProduct, MixinLog):
                     self.__price = price
         else:
             print("“Цена не должна быть нулевая или отрицательная”")
-
-
-product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)

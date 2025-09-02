@@ -71,6 +71,7 @@ class TestCategory:
         assert Category.product_count == 2
 
     def test_str(self, sample_category, sample_products):
+        """Тест пользовательского вывода категории"""
         samp = sample_category
         assert str(samp) == "Электроника, количество продуктов: 13 шт."
 
@@ -78,3 +79,11 @@ class TestCategory:
         """Тест добавления не-продукта в категорию"""
         with pytest.raises(TypeError, match="Можно добавлять только объекты класса Product и его наследников"):
             empty_category.add_product(not_a_product)
+
+    def test_middle_price(self, sample_category):
+        """Тест среднего ценника в категории"""
+        assert sample_category.middle_price() == 65000
+
+    def test_middle_price_empty_category(self, empty_category):
+        """Тест среднего ценника в пустой категории"""
+        assert empty_category.middle_price() == 0
